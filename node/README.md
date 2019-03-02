@@ -12,6 +12,12 @@
 
 ## 使用
 
+### 占用资源
+
+端口：8010
+
+数据库：xkuser
+
 ### API接口
 
 - 用户注册： `(http/https)://api.domain.com/xkusercenter/v1/register`
