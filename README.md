@@ -10,7 +10,7 @@
 
 此项目可以包含有多种语言的实现，请参考：
 
-- [NODE.JS](https://github.com/xingkongus/usercenter/node/blob/master/README.md)
+- [NODE.JS](https://github.com/xingkongus/usercenter/blob/master/node/README.md)
 
 ## 使用
 
