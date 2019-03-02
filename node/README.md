@@ -8,9 +8,7 @@
 
 ## 安装
 
-此项目可以包含有多种语言的实现，请参考：
-
-- [NODE.JS](https://github.com/xingkongus/usercenter/node/blob/master/README.md)
+1. node版本v9.8以上。
 
 ## 使用
 
