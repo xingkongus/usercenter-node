@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>
+    <%=title%>
+  </title>
+  <script src="https://cdn.bootcss.com/jquery/3.4.0/jquery.min.js"></script>
+  <script src="/public/js/plugins/jquery-3.4.0.min.js"></script>
+  <script src="/public/js/plugins/jquery-cookie/jquery.cookie.js"></script>
+</head>
+
+<body>
+  <div>
+    <div>
+      <label for="email">email</label>
+      <input type="text" id="email" name="email">
+    </div>
+    <div>
+      <label for="password">password</label>
+      <input type="password" id="password" name="password">
+    </div>
+    <div>
+      <label for="">confirm password</label>
+      <input type="password" id="confirmPwd">
+    </div>
+    <div>
+      <button id="registBtn">regist</button>
+    </div>
+  </div>
+</body>
+
+<script>
+  $(document).ready(function() {
+    var csrftoken = $.cookie('csrfToken')
+    var authorizationToken = $.cookie('authorizationToken')
+
+    function csrfSafeMethod(method) {
+      // these HTTP methods do not require CSRF protection
+      return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
+    $.ajaxSetup({
+      beforeSend: function(xhr, settings) {
+        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+          xhr.setRequestHeader('x-csrf-token', csrftoken);
+          xhr.setRequestHeader('Authorization', 'Bearer ' + authorizationToken);
+        }
+      },
+    });
+
+    $('#registBtn').on('click', function() {
+      var email = $('#email').val()
+      var password = $('#password').val()
+      var confirmPwd = $('#confirmPwd').val()
+
+      if (confirmPwd !== password) {
+        window.alert('输入的两次密码不一致！')
+        return 0;
+      }
+
+      $.ajax({
+        url: '/api/xkusercenter/v1/regist',
+        method: 'POST',
+        data: {
+          email,
+          password
+        },
+        success: function(data) {
+          console.log('data', data);
+        },
+        error: function(err) {
+          console.log('err', err);
+        }
+      })
+    })
+  })
+</script>
+
+</html>
