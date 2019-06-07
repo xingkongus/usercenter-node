@@ -10,32 +10,17 @@
 
 1. node版本v9.8以上。
 
-2. 进入项目并执行一下命令：
-
-- Use `npm run lint` to check code style.
-- Use `npm test` to run unit test.
-- Use `npm run autod` to auto detect dependencies upgrade, see [autod](https://www.npmjs.com/package/autod) for more detail.
-
-
-[egg]: https://eggjs.org
-
-## 发布
-
-```bash
-$ npm i
-$ npm run dev
-$ open http://localhost:7001/
-```
+## 使用
 
 ### 占用资源
 
 端口：8010
 
-数据库：`xkuser`
+数据库：xkuser
 
 ### API接口
 
-- 用户注册： `(http/https)://api.domain.com/xkusercenter/v1/regist`
+- 用户注册： `(http/https)://api.domain.com/xkusercenter/v1/register`
 
 - 用户登录： `(http/https)://api.domain.com/xkusercenter/v1/login`或`(http/https)://api.domain.com/xkusercenter/v1/signIn`
 
@@ -51,16 +36,13 @@ $ open http://localhost:7001/
 
 ## 设计规范
 
-- 平台遵循[通用接口设计规范](https://github.com/xingkongus/usercenter/blob/master/common-interface-standard.md)。
-
+- 平台遵循[通用接口设计规范]()。
 - 所有api以`/xkusercenter/`开头作为标识符。
-
 - 标识符后面应该紧接**接口版本号**，如`/v1/`代表要使用版本1的接口调用方法，否则可能会出现因为版本不兼容而出的调用失败问题。
-
-- 调用平台的用户注册url看起来应该像这样：`(http/https)://api.domain.com/xkusercenter/v1/regist`。
+- 调用平台的用户注册url看起来应该像这样：`(http/https)://api.domain.com/xkusercenter/v1/register`。
 
 ## 发布历史
 
-### v0.0.1
+### v0.0000.0
 
 - 新增项目README
