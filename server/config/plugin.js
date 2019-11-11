@@ -19,5 +19,13 @@ module.exports = {
     package: "egg-jwt",
     ignore: '/login',
     match: '/api/',
+  },
+  cors: {
+    enable: true,
+    package: 'egg-cors',
+  },
+  validate: {
+    enable: true,
+    package: 'egg-validate',
   }
 };

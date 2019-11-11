@@ -15,6 +15,13 @@ module.exports = appInfo => {
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_1555343319427_7628';
 
+  config.security = {
+    domainWhiteList: ['http://localhost:3000', 'http://localhost:3001'],
+    csrf: {
+      enable: false,
+    }
+  }
+
   // add your middleware config here
   config.middleware = [];
 
@@ -23,6 +30,11 @@ module.exports = appInfo => {
     mapping: {
       '.ejs': 'ejs'
     }
+  }
+
+  config.cors = {
+    origin: ['http://localhost:3001'],
+    credentials: true,
   }
 
   /**

@@ -1,4 +1,5 @@
 const crypto = require('crypto');
+const jwt = require('jsonwebtoken');
 
 module.exports = {
   cryptoPwdGenerator(password) {
@@ -18,7 +19,7 @@ module.exports = {
     let encryptContent = cipherChunks.join('');
     return encryptContent;
   },
-  // getAccessToken: ctx => {
+  // jwt: ctx => {
   //   let bearerToken = ctx.request.header.authorization;
   //   return bearerToken && bearerToken.replace("Bearer ", "");
   // },
@@ -40,8 +41,8 @@ module.exports = {
    * @param {Object} data
    */
   createToken(data) {
-    return this.app.jwt.sign(data, app.config.jwt.secret, {
-      expiresIn: "12h"
+    return jwt.sign(data, app.config.jwt.secret, {
+      expiresIn: "1h"
     });
   },
 
